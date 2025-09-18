@@ -1,52 +1,38 @@
-const express=require("express")
-const app=express();
+const express = require("express");
+const dotenv = require("dotenv");
+const DB = require("./src/config/db");
+const { clerkMiddleware } = require("@clerk/express");
+const serve = require("inngest/express");
+const { inngest, functions } = require("./src/inngest");
 
-const dotenv=require("dotenv")
 dotenv.config();
 
-const DB=require("./src/config/db")
-
-import {clerkMiddleware} from "@clerk/express     "
-import { serve } from "inngest/express";
-import { inngest, functions } from "./src/inngest"
-
-
-app.use(clerkMiddleware()); //req.auth will be available in the req obj
-
+const app = express();
+app.use(clerkMiddleware());
 app.use(express.json());
-
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
+app.get("/", (req, res) => {
+  res.send("You can do it Myman 🚀");
+});
 
+const port = process.env.PORT || 3000;
 
-const port=process.env.PORT || 3000;
-app.use((req,res,next)=>{
-    console.log("App is listening")
-    next();
-})
-
-app.get("/",(req,res)=>{
-     console.log("App is listening")
-    res.send("You can do it Myman")
-})
-
-
-const startServer=async()=>{
-    try{
-        await DB();
-        if(process.env.NODE_ENV!=="production"){
-            app.listen(port,()=>{
-                console.log(`The app is listening on ${port} port`)
-            })
-        }
-    }catch(err){
-        console.log("Erro Starting server",err)
+const startServer = async () => {
+  try {
+    await DB();
+    if (process.env.NODE_ENV !== "production") {
+      app.listen(port, () => {
+        console.log(`The app is listening on port ${port}`);
+      });
     }
-}
+  } catch (err) {
+    console.error("Error starting server", err);
+  }
+};
 
 startServer();
-
-export default app;
+module.exports = app;
 
 
 // DB().then((res)=>{
