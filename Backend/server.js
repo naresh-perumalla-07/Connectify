@@ -3,7 +3,8 @@ const dotenv = require("dotenv");
 const DB = require("./src/config/db");
 const { clerkMiddleware } = require("@clerk/express");
 const serve = require("inngest/express");
-const { inngest, functions } = require("./src/inngest");
+const { inngest, functions } = require("./src/config/inngest");
+
 
 dotenv.config();
 
