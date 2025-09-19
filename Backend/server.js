@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const DB = require("./src/config/db");
 const { clerkMiddleware } = require("@clerk/express");
-const serve = require("inngest/express");
+const { serve } = require("inngest/express"); // destructure serve
 const { inngest, functions } = require("./src/config/inngest");
 
 
