@@ -1,7 +1,7 @@
 
 const { Inngest } = require("inngest");
 const connectDB = require("./db");
-//  
+const {User}= require("../models/User")
 
 // Create a client to send and receive events
 const inngest = new Inngest({ id: "Connectify" });
@@ -29,7 +29,7 @@ const deleteUser = inngest.createFunction(
   { id: "delete-user" },
   { event: "clerk/user.deleted" },
   async ({ event }) => {
-    // await connectDB();
+    await connectDB();
     const { id } = event.data;
     await User.deleteOne({ clerkId: id });
   }
