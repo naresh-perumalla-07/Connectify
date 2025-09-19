@@ -1,7 +1,6 @@
-
 const { Inngest } = require("inngest");
-const connectDB = require("./db");
-const {User}= require("../models/User")
+const connectDB = require("./config/db");
+const { User } = require("./models/User");
 
 // Create a client to send and receive events
 const inngest = new Inngest({ id: "Connectify" });
@@ -35,5 +34,5 @@ const deleteUser = inngest.createFunction(
   }
 );
 
-// Export all functions
-module.exports = { functions: [syncUser, deleteUser] };
+// ✅ Export client and functions
+module.exports = { inngest, functions: [syncUser, deleteUser] };
