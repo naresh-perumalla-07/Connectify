@@ -1,5 +1,5 @@
 const { Inngest } = require("inngest");
-const connectDB = require("./config/db");
+const connectDB = require("./db");
 const { User } = require("./models/User");
 
 // Create a client to send and receive events
