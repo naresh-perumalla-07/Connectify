@@ -6,7 +6,7 @@ const { serve } = require("inngest/express"); // destructure serve
 const { inngest, functions } = require("./src/config/inngest");
 
  
-dotenv.config();gf
+dotenv.config(); 
 
 const app = express();
 app.use(clerkMiddleware());
