@@ -12,7 +12,7 @@ function App() {
       </SignedOut>
       <SignedIn>
         <UserButton />
-      </SignedIn> 
+      </SignedIn>  
     </header>
      
     </>
