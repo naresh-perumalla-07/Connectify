@@ -5,7 +5,7 @@ function App() {
  
 
   return (
-    <>
+    <> 
       <header>
       <SignedOut> 
         <SignInButton mode="modal" />
