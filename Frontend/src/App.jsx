@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <header>
-      <SignedOut>
+      <SignedOut> 
         <SignInButton mode="modal" />
       </SignedOut>
       <SignedIn>
