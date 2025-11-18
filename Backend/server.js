@@ -55,5 +55,5 @@ module.exports = app;
 //     console.log(`The App is listening on ${port} port`
     
 //     )
-//     console.log(DB())
+//     
 // })
