@@ -36,17 +36,17 @@ startServer();
 module.exports = app;
 
 
-// DB().then((res)=>{
-//     console.log("Connected to DB")
+DB().then((res)=>{
+    console.log("Connected to DB")
     
-// }).catch((err)=>{
-//     console.log("Something went Wrong")
-// })
+}).catch((err)=>{
+    console.log("Something went Wrong")
+})
 
 
-// app.listen(port,()=>{
-//         console.log(`The App is listening on ${port} port`)
-//     })
+app.listen(port,()=>{
+        console.log(`The App is listening on ${port} port`)
+    })
 
 
     
