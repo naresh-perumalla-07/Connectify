@@ -7,7 +7,7 @@ const { inngest, functions } = require("./src/config/inngest");
  
  
 dotenv.config(); 
-
+ 
 const app = express();
 app.use(clerkMiddleware());
 app.use(express.json()); 
