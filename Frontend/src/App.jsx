@@ -7,7 +7,7 @@ function App() {
     <>  
       <header>
       <SignedOut> 
-        <SignInButton mode="modal" />
+        <SignInButton mode="modal" /> 
       </SignedOut>
       <SignedIn>
         <UserButton />
